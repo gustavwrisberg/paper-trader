@@ -1,0 +1,2 @@
+ticker,shares
+CASH,10000
