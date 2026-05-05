@@ -68,7 +68,8 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git pull --rebase
+          git fetch origin
+          git reset --soft origin/main
           git add .
           git commit -m "Update weekly strategy data" || echo "No changes"
           git push
@@ -101,7 +102,8 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git pull --rebase
+          git fetch origin
+          git reset --soft origin/main
           git add .
           git commit -m "Update monthly strategy data" || echo "No changes"
           git push
