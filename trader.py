@@ -14,6 +14,8 @@ TICKERS = ["AAPL", "MSFT", "NVDA", "GOOGL", "AMZN"]
 LOOKBACK = 90
 TOP_N = 3
 REBALANCE_FREQ = "M"
+FEE = 0.001
+BENCHMARK = "SPY"
 
 # ======================
 # EMAIL
@@ -28,10 +30,6 @@ EMAIL_TO = os.getenv("EMAIL_TO")
 # ======================
 # HELPERS
 # ======================
-def is_rebalance_day():
-    today = datetime.datetime.utcnow().date()
-    return today.day >= 28
-
 def send_email(subject, body):
     if not EMAIL_HOST:
         return
@@ -45,14 +43,25 @@ def send_email(subject, body):
         server.login(EMAIL_USER, EMAIL_PASSWORD)
         server.send_message(msg)
 
-def load_portfolio():
-    return pd.read_csv("paper_portfolio.csv")
+def load_csv(file, columns):
+    try:
+        return pd.read_csv(file)
+    except:
+        return pd.DataFrame(columns=columns)
 
-def save_portfolio(df):
-    df.to_csv("paper_portfolio.csv", index=False)
+def save_csv(df, file):
+    df.to_csv(file, index=False)
 
+def is_rebalance_day():
+    today = datetime.datetime.utcnow().date()
+    return today.day == 28  # simple but safe
+
+# ======================
+# DATA
+# ======================
 def get_prices(tickers):
-    return yf.download(tickers, period="1y")["Adj Close"]
+    data = yf.download(tickers, period="1y")["Adj Close"]
+    return data
 
 # ======================
 # STRATEGY
@@ -61,7 +70,10 @@ def get_top_assets(prices):
     returns = prices.pct_change(LOOKBACK).iloc[-1]
     return list(returns.sort_values(ascending=False).head(TOP_N).index)
 
-def get_portfolio_value(portfolio, prices):
+# ======================
+# PORTFOLIO
+# ======================
+def portfolio_value(portfolio, prices):
     total = 0
     for _, row in portfolio.iterrows():
         if row["ticker"] == "CASH":
@@ -71,35 +83,107 @@ def get_portfolio_value(portfolio, prices):
     return total
 
 # ======================
-# PERFORMANCE TRACKING
+# TRADE EXECUTION
 # ======================
-def update_performance(value):
-    today = datetime.datetime.utcnow().date()
+def execute_trades(portfolio, target_assets, prices, total_value):
+    trades = []
+    portfolio_dict = {row["ticker"]: row["shares"] for _, row in portfolio.iterrows()}
 
-    try:
-        df = pd.read_csv("performance_log.csv")
-    except:
-        df = pd.DataFrame(columns=["date", "portfolio_value"])
+    cash = portfolio_dict.get("CASH", 0)
 
-    df = pd.concat([
-        df,
-        pd.DataFrame([{
-            "date": today,
-            "portfolio_value": value
+    target_weight = 1 / len(target_assets)
+
+    # SELL everything not in target
+    for ticker, shares in portfolio_dict.items():
+        if ticker != "CASH" and ticker not in target_assets:
+            price = prices[ticker].iloc[-1]
+            value = shares * price
+            cash += value * (1 - FEE)
+
+            trades.append((ticker, "SELL", shares, price, value))
+
+            portfolio_dict[ticker] = 0
+
+    # BUY target assets
+    for ticker in target_assets:
+        price = prices[ticker].iloc[-1]
+        target_value = total_value * target_weight
+
+        current_shares = portfolio_dict.get(ticker, 0)
+        current_value = current_shares * price
+
+        diff_value = target_value - current_value
+
+        if abs(diff_value) < 10:
+            continue
+
+        shares = diff_value / price
+
+        if shares > 0:
+            cost = shares * price * (1 + FEE)
+            if cost > cash:
+                continue
+            cash -= cost
+            action = "BUY"
+        else:
+            cash += abs(shares * price) * (1 - FEE)
+            action = "SELL"
+
+        portfolio_dict[ticker] = current_shares + shares
+        trades.append((ticker, action, shares, price, abs(shares * price)))
+
+    portfolio_dict["CASH"] = cash
+
+    new_portfolio = pd.DataFrame([
+        {"ticker": k, "shares": v} for k, v in portfolio_dict.items() if v > 0
+    ])
+
+    return new_portfolio, trades
+
+# ======================
+# LOGGING
+# ======================
+def log_trades(trades):
+    df = load_csv("trade_log.csv", ["date","ticker","action","shares","price","value"])
+    now = datetime.datetime.utcnow()
+
+    for t in trades:
+        new = pd.DataFrame([{
+            "date": now,
+            "ticker": t[0],
+            "action": t[1],
+            "shares": t[2],
+            "price": t[3],
+            "value": t[4]
         }])
-    ], ignore_index=True)
+        df = pd.concat([df, new])
 
-    df.to_csv("performance_log.csv", index=False)
-    return df
+    save_csv(df, "trade_log.csv")
 
-def plot_performance(df):
+def log_performance(value, benchmark_price):
+    df = load_csv("performance_log.csv", ["date","portfolio_value","benchmark_value"])
+    now = datetime.datetime.utcnow()
+
+    new = pd.DataFrame([{
+        "date": now,
+        "portfolio_value": value,
+        "benchmark_value": benchmark_price
+    }])
+
+    df = pd.concat([df, new])
+    save_csv(df, "performance_log.csv")
+
+# ======================
+# PLOTTING
+# ======================
+def plot_performance():
+    df = pd.read_csv("performance_log.csv")
     df["date"] = pd.to_datetime(df["date"])
 
     plt.figure()
-    plt.plot(df["date"], df["portfolio_value"])
-    plt.title("Portfolio Value")
-    plt.xlabel("Date")
-    plt.ylabel("Value")
+    plt.plot(df["date"], df["portfolio_value"], label="Strategy")
+    plt.plot(df["date"], df["benchmark_value"], label="Benchmark")
+    plt.legend()
     plt.xticks(rotation=45)
     plt.tight_layout()
 
@@ -111,48 +195,36 @@ def plot_performance(df):
 # MAIN
 # ======================
 def main():
-    prices = get_prices(TICKERS)
-    portfolio = load_portfolio()
+    prices = get_prices(TICKERS + [BENCHMARK])
+    portfolio = load_csv("paper_portfolio.csv", ["ticker","shares"])
 
-    top_assets = get_top_assets(prices)
+    top_assets = get_top_assets(prices[TICKERS])
+
+    total_value = portfolio_value(portfolio, prices)
+    benchmark_price = prices[BENCHMARK].iloc[-1]
+
     report = []
     report.append(f"Top assets: {top_assets}")
-
-    total_value = get_portfolio_value(portfolio, prices)
     report.append(f"Portfolio value: {round(total_value,2)}")
 
-    # update performance log
-    perf_df = update_performance(total_value)
-    plot_performance(perf_df)
+    log_performance(total_value, benchmark_price)
+    plot_performance()
 
     if not is_rebalance_day():
         report.append("No rebalance today.")
         send_email("Daily Update", "\n".join(report))
         return
 
-    # REBALANCE
-    target_weight = 1 / len(top_assets)
-    new_rows = []
-    cash = total_value
+    new_portfolio, trades = execute_trades(portfolio, top_assets, prices, total_value)
 
-    for ticker in top_assets:
-        price = prices[ticker].iloc[-1]
-        target_value = total_value * target_weight
-        shares = target_value / price
+    save_csv(new_portfolio, "paper_portfolio.csv")
+    log_trades(trades)
 
-        new_rows.append({"ticker": ticker, "shares": shares})
-        cash -= shares * price
-
-    new_rows.append({"ticker": "CASH", "shares": cash})
-    new_portfolio = pd.DataFrame(new_rows)
-
-    save_portfolio(new_portfolio)
-
-    report.append("Rebalanced portfolio:")
-    report.append(str(new_portfolio))
+    report.append("Trades executed:")
+    for t in trades:
+        report.append(str(t))
 
     send_email("Rebalance Executed", "\n".join(report))
-
 
 if __name__ == "__main__":
     main()
