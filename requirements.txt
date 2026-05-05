@@ -1,10 +1,4 @@
-<<<<<<< HEAD
 yfinance
 pandas
 numpy
-=======
-pandas
-numpy
-yfinance
->>>>>>> 24a0b3d80af48bbdc1566856638a7079f3758532
 matplotlib
