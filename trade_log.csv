@@ -1,2 +1,6 @@
+<<<<<<< HEAD
 ticker,shares
 CASH,10000
+=======
+date,ticker,action,shares,price,value
+>>>>>>> 24a0b3d80af48bbdc1566856638a7079f3758532
