@@ -128,8 +128,8 @@ def get_portfolio_value(portfolio, prices):
 # ======================
 def get_top_assets(prices):
     returns = prices.pct_change(LOOKBACK).iloc[-1]
-    valid = returns.dropna()
-    return list(valid.sort_values(ascending=False).head(TOP_N).index)
+    valid = returns.dropna().sort_values(ascending=False)
+    return list(valid.head(TOP_N).index), {t: (round(v*100,1), i+1) for i, (t,v) in enumerate(valid.items())}
 
 # ======================
 # PERFORMANCE TRACKING
@@ -171,7 +171,7 @@ def plot_performance(df):
     plt.savefig(f"plots/equity_curve_{STRATEGY}.png")
     plt.close()
 
-def log_trade(ticker, action, shares, price):
+def log_trade(ticker, action, shares, price, reason=""):
     today = datetime.datetime.utcnow().date()
     row = pd.DataFrame([{
         "date": today,
@@ -180,9 +180,12 @@ def log_trade(ticker, action, shares, price):
         "shares": round(shares, 6),
         "price": round(price, 4),
         "value": round(shares * price, 2),
+        "reason": reason,
     }])
     if os.path.exists(TRADE_LOG_FILE):
         existing = pd.read_csv(TRADE_LOG_FILE)
+        if "reason" not in existing.columns:
+            existing["reason"] = ""
         row = pd.concat([existing, row], ignore_index=True)
     row.to_csv(TRADE_LOG_FILE, index=False)
 
@@ -197,7 +200,7 @@ def main():
     benchmark_prices.index = pd.to_datetime(benchmark_prices.index).normalize()
 
     portfolio = load_portfolio()
-    top_assets = get_top_assets(prices)
+    top_assets, momentum_ranks = get_top_assets(prices)
     report = [f"Strategy: {STRATEGY}", f"Top assets: {top_assets}"]
 
     total_value = get_portfolio_value(portfolio, prices)
@@ -227,17 +230,19 @@ def main():
         price = float(latest[ticker])
         target_value = total_value * target_weight
         shares = target_value / price
+        mom_pct, rank = momentum_ranks[ticker]
+        mom_str = f"{'+' if mom_pct >= 0 else ''}{mom_pct}% {LOOKBACK}d momentum, ranked #{rank}"
 
         # Log sells for positions being exited
         if ticker in old_holdings:
             old_shares = old_holdings[ticker]
             if abs(old_shares - shares) > 0.0001:
                 if old_shares > shares:
-                    log_trade(ticker, "SELL", old_shares - shares, price)
+                    log_trade(ticker, "SELL", old_shares - shares, price, f"Rebalance — trim to equal weight ({mom_str})")
                 else:
-                    log_trade(ticker, "BUY", shares - old_shares, price)
+                    log_trade(ticker, "BUY", shares - old_shares, price, f"Rebalance — top {rank} momentum ({mom_str})")
         else:
-            log_trade(ticker, "BUY", shares, price)
+            log_trade(ticker, "BUY", shares, price, f"Entered — top {rank} momentum ({mom_str})")
 
         new_rows.append({"ticker": ticker, "shares": round(shares, 6)})
         cash -= shares * price
@@ -246,7 +251,12 @@ def main():
     for ticker, old_shares in old_holdings.items():
         if ticker not in top_assets and ticker != "CASH":
             price = float(latest[ticker]) if ticker in latest.index else 0
-            log_trade(ticker, "SELL", old_shares, price)
+            if ticker in momentum_ranks:
+                mom_pct, rank = momentum_ranks[ticker]
+                reason = f"Exited — fell out of top {TOP_N} (ranked #{rank}, {'+' if mom_pct >= 0 else ''}{mom_pct}% {LOOKBACK}d momentum)"
+            else:
+                reason = f"Exited — no momentum data"
+            log_trade(ticker, "SELL", old_shares, price, reason)
 
     new_rows.append({"ticker": "CASH", "shares": round(cash, 2)})
     new_portfolio = pd.DataFrame(new_rows)
