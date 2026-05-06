@@ -138,13 +138,14 @@ def build_data():
         }
     out["equity"] = equity
 
-    # 2. Technicals for current holdings
+    # 2. Technicals for all analysed tickers
+    all_tickers = [t for t in (STOCK_TICKERS + ["BTC"]) if t in all_prices.columns]
     technicals = {}
     for s in STRATEGIES:
         port = load_portfolio(s)
-        held = [r["ticker"] for _, r in port.iterrows() if r["ticker"] != "CASH"]
+        held = {r["ticker"] for _, r in port.iterrows() if r["ticker"] != "CASH"}
         ticker_data = {}
-        for ticker in held:
+        for ticker in all_tickers:
             if ticker not in all_prices.columns:
                 continue
             series = all_prices[ticker].dropna()
@@ -156,6 +157,7 @@ def build_data():
                 "sma50":  sma(series, 50).tolist(),
                 "sma200": sma(series, 200).tolist(),
                 "rsi14":  rsi(series, 14).tolist(),
+                "held": ticker in held,
             }
         technicals[s] = ticker_data
     out["technicals"] = technicals
@@ -283,7 +285,7 @@ HTML = r"""<!DOCTYPE html>
 
 <!-- TECHNICALS PER STRATEGY -->
 <div class="card">
-  <h2>Technical Analysis — Current Holdings</h2>
+  <h2>Technical Analysis — All Analysed Assets</h2>
   <div class="tabs" id="tech-tabs">
     <button class="tab active" onclick="showTab('tech','daily',this)">Daily</button>
     <button class="tab" onclick="showTab('tech','weekly',this)">Weekly</button>
@@ -422,7 +424,7 @@ function buildTechnicals(strategy) {
   const container = document.getElementById(`tech-${strategy}`);
   const tickers = DATA.technicals[strategy];
   if (!tickers || !Object.keys(tickers).length) {
-    container.innerHTML = '<p style="color:var(--muted);font-size:.85rem;padding:8px 0">No holdings yet.</p>';
+    container.innerHTML = '<p style="color:var(--muted);font-size:.85rem;padding:8px 0">No data yet.</p>';
     return;
   }
   container.innerHTML = '';
@@ -431,7 +433,8 @@ function buildTechnicals(strategy) {
     wrap.style.marginBottom = '28px';
 
     const t1 = document.createElement('h3');
-    t1.textContent = `${ticker} — Price & SMAs`;
+    const badge = d.held ? ' <span style="background:var(--accent);color:#fff;font-size:.7rem;padding:2px 7px;border-radius:4px;vertical-align:middle;font-weight:600">HELD</span>' : '';
+    t1.innerHTML = `${ticker} — Price & SMAs${badge}`;
     wrap.appendChild(t1);
 
     const priceDiv = document.createElement('div');
