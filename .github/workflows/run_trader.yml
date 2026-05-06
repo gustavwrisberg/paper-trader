@@ -20,6 +20,7 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: python trader.py
+      - run: python generate_dashboard.py
         env:
           STRATEGY: daily
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
@@ -48,6 +49,7 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: python trader.py
+      - run: python generate_dashboard.py
         env:
           STRATEGY: weekly
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
@@ -78,6 +80,7 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: python trader.py
+      - run: python generate_dashboard.py
         env:
           STRATEGY: monthly
           EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
