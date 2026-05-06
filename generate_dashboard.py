@@ -488,7 +488,7 @@ function buildTrades(strategy) {
     return;
   }
   container.innerHTML = `<table>
-    <thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Shares</th><th>Price</th><th>Value</th></tr></thead>
+    <thead><tr><th>Date</th><th>Ticker</th><th>Action</th><th>Shares</th><th>Price</th><th>Value</th><th>Reason</th></tr></thead>
     <tbody>${rows.map(r => `<tr>
       <td>${String(r.date).slice(0,10)}</td>
       <td><strong>${r.ticker}</strong></td>
@@ -496,6 +496,7 @@ function buildTrades(strategy) {
       <td>${Number(r.shares).toFixed(4)}</td>
       <td>$${Number(r.price).toFixed(2)}</td>
       <td>$${Number(r.value).toFixed(2)}</td>
+      <td style="color:var(--muted);font-size:.8rem">${r.reason || '—'}</td>
     </tr>`).join('')}</tbody>
   </table>`;
 }
