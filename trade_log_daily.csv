@@ -12,3 +12,6 @@ date,ticker,action,shares,price,value,reason
 2026-05-06,GOOGL,BUY,0.069362,396.41,27.5,"Rebalance — top 1 momentum (+26.3% 90d momentum, ranked #1)"
 2026-05-06,AMZN,SELL,0.001523,275.955,0.42,"Rebalance — trim to equal weight (+18.8% 90d momentum, ranked #2)"
 2026-05-06,NVDA,SELL,0.130629,207.2693,27.08,"Rebalance — trim to equal weight (+9.9% 90d momentum, ranked #3)"
+2026-05-07,GOOGL,BUY,0.033006,395.43,13.05,"Add to position — rank #1 (+26.2% 90d momentum, rank #1)"
+2026-05-07,AMZN,BUY,0.204928,271.8,55.7,"Add to position — rank #2 (+16.9% 90d momentum, rank #2)"
+2026-05-07,NVDA,SELL,0.324664,211.76,68.75,"Trim to equal weight (+11.1% 90d momentum, rank #3)"
