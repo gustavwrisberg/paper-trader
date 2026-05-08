@@ -18,7 +18,7 @@ STOCK_TICKERS = [
     "EEM",   # MSCI Emerging Markets
     "IEV",   # STOXX Europe 600 (replaces EXSA.DE)
     "EWJ",   # Japan / TOPIX proxy (replaces 1306.T)
-    "ISWC",  # MSCI World Small Cap (replaces WSML.L)
+    "SCZ",   # MSCI EAFE Small Cap (replaces ISWC)
     # International stocks (USD-listed)
     "TSM",   # TSMC
     "ASML",  # ASML
@@ -28,7 +28,6 @@ STOCK_TICKERS = [
     "SBGSY", # Schneider Electric ADR (replaces SU.PA)
     "BN",    # Brookfield Corporation
     "SHEL",  # Shell
-    "SSNLF", # Samsung Electronics (USD OTC, replaces 005930.KS)
     "BRK-B", # Berkshire Hathaway
 ]
 
