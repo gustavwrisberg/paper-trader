@@ -95,6 +95,18 @@ def fetch_btc():
         return None
 
 
+def fetch_intraday(tickers):
+    """Fetch today's intraday prices (5-min bars) for real-time crash detection."""
+    try:
+        data = yf.download(tickers, period="1d", interval="5m", auto_adjust=True, progress=False)["Close"]
+        if isinstance(data, pd.Series):
+            data = data.to_frame(name=tickers[0] if isinstance(tickers, list) else tickers)
+        return data
+    except Exception as e:
+        print(f"Intraday fetch failed: {e}")
+        return None
+
+
 def fetch_all():
     prices = fetch_stocks(STOCK_TICKERS)
     btc = fetch_btc()
@@ -139,38 +151,51 @@ def portfolio_value(portfolio, prices):
     return total
 
 
-def check_alerts(portfolio, prices):
+def check_alerts(portfolio, daily_prices):
     """
-    Check held positions for crash signals.
-    Returns a list of alert strings, empty if nothing triggered.
+    Check held positions for crash signals using intraday prices where available,
+    falling back to daily closes. Returns a list of alert strings.
     """
     held = [r["ticker"] for _, r in portfolio.iterrows() if r["ticker"] != "CASH"]
+    if not held:
+        return []
+
+    intraday = fetch_intraday(held)
     alerts = []
 
     for t in held:
-        if t not in prices.columns:
+        if t not in daily_prices.columns:
             continue
-        series = prices[t].dropna()
-        if len(series) < 55:
+        daily = daily_prices[t].dropna()
+        if len(daily) < 55:
             continue
 
-        latest  = series.iloc[-1]
-        prev    = series.iloc[-2]
-        sma50   = series.rolling(50).mean().iloc[-1]
-        rsi_val = rsi(series).iloc[-1]
+        # Use intraday current price if available, else last daily close
+        if intraday is not None and t in intraday.columns:
+            intra = intraday[t].dropna()
+            current_price = float(intra.iloc[-1]) if len(intra) > 0 else float(daily.iloc[-1])
+            open_price    = float(intra.iloc[0])  if len(intra) > 0 else float(daily.iloc[-1])
+            intraday_change = (current_price - open_price) / open_price if open_price else 0
+        else:
+            current_price   = float(daily.iloc[-1])
+            prev_close      = float(daily.iloc[-2])
+            intraday_change = (current_price - prev_close) / prev_close
+
+        sma50   = float(daily.rolling(50).mean().iloc[-1])
+        sma50_prev = float(daily.rolling(50).mean().iloc[-2])
+        rsi_val = float(rsi(daily).iloc[-1])
+        prev_close = float(daily.iloc[-2])
 
         reasons = []
 
-        change_1d = (latest - prev) / prev
-        if change_1d <= ALERT_DROP_1D:
-            reasons.append(f"down {change_1d*100:.1f}% today")
+        if intraday_change <= ALERT_DROP_1D:
+            reasons.append(f"down {intraday_change*100:.1f}% today (now ${current_price:.2f})")
 
         if not np.isnan(rsi_val) and rsi_val < ALERT_RSI_LOW:
             reasons.append(f"RSI {rsi_val:.0f} (oversold)")
 
         if ALERT_SMA_BREAK and not np.isnan(sma50):
-            prev_sma50 = series.rolling(50).mean().iloc[-2]
-            if prev >= prev_sma50 and latest < sma50:
+            if prev_close >= sma50_prev and current_price < sma50:
                 reasons.append(f"broke below 50d SMA (${sma50:.2f})")
 
         if reasons:
@@ -304,6 +329,7 @@ def main():
         return
 
     # ── Rebalance ─────────────────────────────────────────────────────────────
+    lines.append("Rebalancing...")
     weight  = 1 / len(top)
     latest  = prices.iloc[-1]
     old     = {r["ticker"]: r["shares"] for _, r in portfolio.iterrows()}
@@ -341,8 +367,10 @@ def main():
     pd.DataFrame(new_rows).to_csv(PORTFOLIO_FILE, index=False)
 
     lines.append("Rebalanced:\n" + str(pd.DataFrame(new_rows)))
-    send_email(f"[{STRATEGY}] rebalance", "\n".join(lines))
-    print("\n".join(lines))
+    msg = "\n".join(lines)
+    send_email(f"[{STRATEGY}] rebalance", msg)
+    send_sms(msg[:1600])
+    print(msg)
 
 
 if __name__ == "__main__":
