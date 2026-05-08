@@ -11,25 +11,25 @@ import matplotlib.pyplot as plt
 
 # Stocks and ETFs to rank and trade
 STOCK_TICKERS = [
-    # Original
+    # Original US
     "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN",
-    # Global ETFs
-    "URTH",    # MSCI World
-    "EEM",     # MSCI Emerging Markets
-    "EXSA.DE", # STOXX Europe 600
-    "1306.T",  # TOPIX
-    "WSML.L",  # MSCI World Small Cap
-    # International stocks
-    "TSM",     # TSMC
-    "ASML",    # ASML
-    "NVO",     # Novo Nordisk
-    "7011.T",  # Mitsubishi Heavy Industries
-    "SIE.DE",  # Siemens
-    "SU.PA",   # Schneider Electric
-    "BN",      # Brookfield Corporation
-    "SHEL",    # Shell
-    "005930.KS", # Samsung Electronics
-    "BRK-B",   # Berkshire Hathaway
+    # Global ETFs (all USD-listed)
+    "URTH",  # MSCI World
+    "EEM",   # MSCI Emerging Markets
+    "IEV",   # STOXX Europe 600 (replaces EXSA.DE)
+    "EWJ",   # Japan / TOPIX proxy (replaces 1306.T)
+    "ISWC",  # MSCI World Small Cap (replaces WSML.L)
+    # International stocks (USD-listed)
+    "TSM",   # TSMC
+    "ASML",  # ASML
+    "NVO",   # Novo Nordisk
+    "MHVYF", # Mitsubishi Heavy Industries (USD OTC)
+    "SIEGY", # Siemens ADR (replaces SIE.DE)
+    "SBGSY", # Schneider Electric ADR (replaces SU.PA)
+    "BN",    # Brookfield Corporation
+    "SHEL",  # Shell
+    "SSNLF", # Samsung Electronics (USD OTC, replaces 005930.KS)
+    "BRK-B", # Berkshire Hathaway
 ]
 
 BENCHMARK = "SPY"
