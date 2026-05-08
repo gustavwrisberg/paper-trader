@@ -297,8 +297,10 @@ def main():
 
     if not rebalance_today():
         lines.append("No rebalance.")
-        send_email(f"[{STRATEGY}] update", "\n".join(lines))
-        print("\n".join(lines))
+        msg = "\n".join(lines)
+        send_email(f"[{STRATEGY}] update", msg)
+        send_sms(msg[:1600])
+        print(msg)
         return
 
     # ── Rebalance ─────────────────────────────────────────────────────────────
