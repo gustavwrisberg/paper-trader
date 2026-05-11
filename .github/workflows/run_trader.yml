@@ -15,12 +15,11 @@ jobs:
     runs-on: ubuntu-latest
     env:
       STRATEGY: daily
-      EMAIL_HOST:     ${{ secrets.EMAIL_HOST }}
-      EMAIL_PORT:     ${{ secrets.EMAIL_PORT }}
-      EMAIL_USER:     ${{ secrets.EMAIL_USER }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      EMAIL_FROM:     ${{ secrets.EMAIL_FROM }}
-      EMAIL_TO:       ${{ secrets.EMAIL_TO }}
+      GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
+      GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+      GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+      EMAIL_FROM:          ${{ secrets.EMAIL_FROM }}
+      EMAIL_TO:            ${{ secrets.EMAIL_TO }}
       TWILIO_SID:     ${{ secrets.TWILIO_SID }}
       TWILIO_TOKEN:   ${{ secrets.TWILIO_TOKEN }}
       TWILIO_FROM:    ${{ secrets.TWILIO_FROM }}
@@ -47,12 +46,11 @@ jobs:
     needs: daily
     env:
       STRATEGY: weekly
-      EMAIL_HOST:     ${{ secrets.EMAIL_HOST }}
-      EMAIL_PORT:     ${{ secrets.EMAIL_PORT }}
-      EMAIL_USER:     ${{ secrets.EMAIL_USER }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      EMAIL_FROM:     ${{ secrets.EMAIL_FROM }}
-      EMAIL_TO:       ${{ secrets.EMAIL_TO }}
+      GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
+      GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+      GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+      EMAIL_FROM:          ${{ secrets.EMAIL_FROM }}
+      EMAIL_TO:            ${{ secrets.EMAIL_TO }}
       TWILIO_SID:     ${{ secrets.TWILIO_SID }}
       TWILIO_TOKEN:   ${{ secrets.TWILIO_TOKEN }}
       TWILIO_FROM:    ${{ secrets.TWILIO_FROM }}
@@ -80,12 +78,11 @@ jobs:
     needs: weekly
     env:
       STRATEGY: monthly
-      EMAIL_HOST:     ${{ secrets.EMAIL_HOST }}
-      EMAIL_PORT:     ${{ secrets.EMAIL_PORT }}
-      EMAIL_USER:     ${{ secrets.EMAIL_USER }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      EMAIL_FROM:     ${{ secrets.EMAIL_FROM }}
-      EMAIL_TO:       ${{ secrets.EMAIL_TO }}
+      GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
+      GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
+      GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
+      EMAIL_FROM:          ${{ secrets.EMAIL_FROM }}
+      EMAIL_TO:            ${{ secrets.EMAIL_TO }}
       TWILIO_SID:     ${{ secrets.TWILIO_SID }}
       TWILIO_TOKEN:   ${{ secrets.TWILIO_TOKEN }}
       TWILIO_FROM:    ${{ secrets.TWILIO_FROM }}
