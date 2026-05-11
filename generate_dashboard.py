@@ -10,9 +10,9 @@ import yfinance as yf
 STRATEGIES    = ["daily", "weekly", "monthly"]
 STOCK_TICKERS = [
     "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN",
-    "URTH", "EEM", "IEV", "EWJ", "ISWC",
+    "URTH", "EEM", "IEV", "EWJ", "SCZ",
     "TSM", "ASML", "NVO", "MHVYF", "SIEGY",
-    "SBGSY", "BN", "SHEL", "SSNLF", "BRK-B",
+    "SBGSY", "BN", "SHEL", "BRK-B",
 ]
 BENCHMARK     = "SPY"
 LOOKBACK      = 90
