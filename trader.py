@@ -1,7 +1,5 @@
 import os
 import datetime
-import smtplib
-from email.mime.text import MIMEText
 
 import numpy as np
 import pandas as pd
@@ -45,17 +43,12 @@ PORTFOLIO_FILE = f"paper_portfolio_{STRATEGY}.csv"
 PERF_FILE      = f"performance_log_{STRATEGY}.csv"
 TRADE_FILE     = f"trade_log_{STRATEGY}.csv"
 
-EMAIL_HOST     = os.getenv("EMAIL_HOST")
-EMAIL_PORT     = int(os.getenv("EMAIL_PORT") or 587)
-EMAIL_USER     = os.getenv("EMAIL_USER")
-EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
-EMAIL_FROM     = os.getenv("EMAIL_FROM")
-EMAIL_TO       = os.getenv("EMAIL_TO")
+from gmail_oauth import send_email
 
 TWILIO_SID   = os.getenv("TWILIO_SID")
 TWILIO_TOKEN = os.getenv("TWILIO_TOKEN")
-TWILIO_FROM  = os.getenv("TWILIO_FROM")  # your Twilio number e.g. +15551234567
-TWILIO_TO    = os.getenv("TWILIO_TO")    # your number e.g. +4512345678
+TWILIO_FROM  = os.getenv("TWILIO_FROM")
+TWILIO_TO    = os.getenv("TWILIO_TO")
 
 
 def rebalance_today():
@@ -256,18 +249,11 @@ def plot_equity(df):
     plt.close()
 
 
-def send_email(subject, body):
-    if not EMAIL_HOST:
-        print("No EMAIL_HOST, skipping email.")
-        return
-    msg = MIMEText(body)
-    msg["Subject"] = subject
-    msg["From"] = EMAIL_FROM
-    msg["To"] = EMAIL_TO
-    with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as s:
-        s.starttls()
-        s.login(EMAIL_USER, EMAIL_PASSWORD)
-        s.send_message(msg)
+def send_email_safe(subject, body):
+    try:
+        send_email(subject, body)
+    except Exception as e:
+        print(f"Email failed: {e}")
 
 
 def send_sms(body):
@@ -310,7 +296,7 @@ def main():
         alert_text = f"[{STRATEGY.upper()}] ALERT — {datetime.datetime.utcnow().strftime('%H:%M UTC')}\n\n"
         alert_text += "\n".join(f"⚠ {a}" for a in alerts)
         print(alert_text)
-        send_email(f"[{STRATEGY}] ⚠ crash alert", alert_text)
+        send_email_safe(f"[{STRATEGY}] ⚠ crash alert", alert_text)
         send_sms(alert_text[:1600])  # Twilio cap
 
     lines = [
@@ -323,7 +309,7 @@ def main():
     if not rebalance_today():
         lines.append("No rebalance.")
         msg = "\n".join(lines)
-        send_email(f"[{STRATEGY}] update", msg)
+        send_email_safe(f"[{STRATEGY}] update", msg)
         send_sms(msg[:1600])
         print(msg)
         return
@@ -368,7 +354,7 @@ def main():
 
     lines.append("Rebalanced:\n" + str(pd.DataFrame(new_rows)))
     msg = "\n".join(lines)
-    send_email(f"[{STRATEGY}] rebalance", msg)
+    send_email_safe(f"[{STRATEGY}] rebalance", msg)
     send_sms(msg[:1600])
     print(msg)
 
