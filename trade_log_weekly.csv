@@ -1,1 +1,4 @@
-date,ticker,action,shares,price,value
+date,ticker,action,shares,price,value,reason
+2026-05-11,ASML,BUY,2.13332,1562.51,3333.33,"New entry — rank #1 (+46.2% 90d momentum, rank #1)"
+2026-05-11,TSM,BUY,8.245518,404.26,3333.33,"New entry — rank #2 (+35.3% 90d momentum, rank #2)"
+2026-05-11,GOOGL,BUY,8.490406,392.6,3333.33,"New entry — rank #3 (+25.2% 90d momentum, rank #3)"
