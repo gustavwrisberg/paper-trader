@@ -224,6 +224,9 @@ def update_performance(port_val, bench_val):
     else:
         df = pd.DataFrame(columns=["date", "portfolio_value", "benchmark_value"])
 
+    # drop any existing row for today before appending so we don't
+    # accumulate one row per 10-minute run
+    df = df[df["date"].astype(str) != str(today)]
     df = pd.concat([df, pd.DataFrame([{
         "date":            today,
         "portfolio_value": round(port_val, 2),
