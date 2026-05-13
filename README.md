@@ -18,6 +18,11 @@ Pure momentum. Each asset's 90-day return is calculated, everything is ranked, a
 
 **Watchlist:** US mega-caps (AAPL, MSFT, NVDA, GOOGL, AMZN), global ETFs (URTH, EEM, IEV, EWJ, SCZ), international stocks (TSM, ASML, NVO, SHEL, BRK-B, and others), plus BTC.
 
+## Dashboard
+
+![Performance vs SPY](docs/screenshots/dashboard.png)
+![Selection history and ranking](docs/screenshots/selection.png)
+
 ## Setup
 
 Add these as GitHub repository secrets:
