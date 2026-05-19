@@ -75,3 +75,7 @@ date,ticker,action,shares,price,value,reason
 2026-05-18,SHEL,BUY,0.09552,88.59,8.46,"Add to position — rank #1 (+25.0% 90d momentum, rank #1)"
 2026-05-18,TSM,SELL,0.074339,395.95,29.43,"Trim to equal weight (+24.6% 90d momentum, rank #2)"
 2026-05-18,GOOGL,BUY,0.052835,396.94,20.97,"Add to position — rank #3 (+23.4% 90d momentum, rank #3)"
+2026-05-19,SHEL,SELL,0.24924,88.44,22.04,"Trim to equal weight (+27.0% 90d momentum, rank #1)"
+2026-05-19,TSM,SELL,0.056391,395.31,22.29,"Trim to equal weight (+24.7% 90d momentum, rank #2)"
+2026-05-19,ASML,BUY,2.193215,1467.28,3218.06,"New entry — rank #3 (+23.3% 90d momentum, rank #3)"
+2026-05-19,GOOGL,SELL,8.176546,388.1499,3173.73,"Dropped from top 3 (rank #5, +19.4%)"
