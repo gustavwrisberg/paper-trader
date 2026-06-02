@@ -171,3 +171,6 @@ date,ticker,action,shares,price,value,reason
 2026-06-02,AAPL,SELL,0.094507,314.73,29.74,"Trim to equal weight (+27.0% 90d momentum, rank #2)"
 2026-06-02,SBGSY,BUY,34.038253,66.73,2271.37,"New entry — rank #3 (+25.2% 90d momentum, rank #3)"
 2026-06-02,NVDA,SELL,9.98197,223.215,2228.13,"Dropped from top 3 (rank #6, +20.8%)"
+2026-06-02,TSM,SELL,0.009761,446.69,4.36,"Trim to equal weight (+36.8% 90d momentum, rank #1)"
+2026-06-02,AAPL,BUY,0.011794,315.2,3.72,"Add to position — rank #2 (+27.2% 90d momentum, rank #2)"
+2026-06-02,SBGSY,BUY,0.009601,66.92,0.64,"Add to position — rank #3 (+25.6% 90d momentum, rank #3)"
