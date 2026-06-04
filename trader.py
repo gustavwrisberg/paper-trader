@@ -8,25 +8,19 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 
 # Stocks and ETFs to rank and trade
+# Trimmed to tickers that have meaningful momentum and liquidity.
+# Removed: URTH, SCZ, IEV, EWJ (low-momentum ETFs), NVO, MHVYF, SIEGY, BRK-B (never selected).
 STOCK_TICKERS = [
-    # Original US
+    # US mega-caps
     "AAPL", "MSFT", "NVDA", "GOOGL", "AMZN",
-    # Global ETFs (all USD-listed)
-    "URTH",  # MSCI World
-    "EEM",   # MSCI Emerging Markets
-    "IEV",   # STOXX Europe 600 (replaces EXSA.DE)
-    "EWJ",   # Japan / TOPIX proxy (replaces 1306.T)
-    "SCZ",   # MSCI EAFE Small Cap (replaces ISWC)
-    # International stocks (USD-listed)
+    # Emerging markets ETF (selected occasionally)
+    "EEM",
+    # International stocks (USD-listed, have appeared in top 3)
     "TSM",   # TSMC
     "ASML",  # ASML
-    "NVO",   # Novo Nordisk
-    "MHVYF", # Mitsubishi Heavy Industries (USD OTC)
-    "SIEGY", # Siemens ADR (replaces SIE.DE)
-    "SBGSY", # Schneider Electric ADR (replaces SU.PA)
+    "SBGSY", # Schneider Electric ADR
     "BN",    # Brookfield Corporation
     "SHEL",  # Shell
-    "BRK-B", # Berkshire Hathaway
 ]
 
 BENCHMARK = "SPY"
@@ -53,7 +47,14 @@ TWILIO_TO    = os.getenv("TWILIO_TO")
 
 def rebalance_today():
     day = datetime.datetime.utcnow().date()
-    if STRATEGY == "daily":   return True
+    if STRATEGY == "daily":
+        # Idempotency guard: only rebalance once per calendar day.
+        # Prevents duplicate trades when the Action fires multiple times.
+        if os.path.exists(TRADE_FILE):
+            trades = pd.read_csv(TRADE_FILE)
+            if str(day) in trades["date"].astype(str).values:
+                return False
+        return True
     if STRATEGY == "weekly":  return day.weekday() == 0
     if STRATEGY == "monthly": return day.day >= 28
     return False
@@ -318,6 +319,9 @@ def main():
         return
 
     # ── Rebalance ─────────────────────────────────────────────────────────────
+    # Minimum trade value — ignore tiny equal-weight drift below this threshold
+    MIN_TRADE_VALUE = 50.0
+
     lines.append("Rebalancing...")
     weight  = 1 / len(top)
     latest  = prices.iloc[-1]
@@ -326,7 +330,15 @@ def main():
     cash    = val
 
     for t in top:
-        price  = float(latest[t])
+        raw = latest[t] if t in latest.index else None
+        if raw is None or pd.isna(raw):
+            print(f"WARNING: No price for {t}, skipping rebalance for this ticker")
+            # Keep existing position unchanged
+            if t in old:
+                new_rows.append({"ticker": t, "shares": old[t]})
+                cash -= old[t] * 0  # price unknown, can't deduct — leave cash as-is
+            continue
+        price  = float(raw)
         shares = (val * weight) / price
         pct, rank = ranks[t]
         sign = "+" if pct >= 0 else ""
@@ -334,7 +346,7 @@ def main():
 
         if t in old:
             diff = old[t] - shares
-            if abs(diff) > 0.0001:
+            if abs(diff) > 0.0001 and abs(diff * price) >= MIN_TRADE_VALUE:
                 if diff > 0:
                     log_trade(t, "SELL", diff, price, f"Trim to equal weight ({mom})")
                 else:
@@ -347,7 +359,11 @@ def main():
 
     for t, s in old.items():
         if t not in top and t != "CASH":
-            price = float(latest[t]) if t in latest.index else 0
+            raw = latest[t] if t in latest.index else None
+            if raw is None or pd.isna(raw):
+                print(f"WARNING: No price for {t}, skipping sell log — manual correction may be needed")
+                continue
+            price = float(raw)
             pct, rank = ranks.get(t, (0, "?"))
             sign = "+" if pct >= 0 else ""
             log_trade(t, "SELL", s, price, f"Dropped from top {TOP_N} (rank #{rank}, {sign}{pct}%)")
