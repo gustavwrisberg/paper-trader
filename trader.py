@@ -47,6 +47,10 @@ TWILIO_TO    = os.getenv("TWILIO_TO")
 
 def rebalance_today():
     day = datetime.datetime.utcnow().date()
+    # FORCE_REBALANCE is set to "1" on manual workflow_dispatch runs so that
+    # weekly and monthly strategies always execute their first rebalance immediately.
+    if os.getenv("FORCE_REBALANCE") == "1":
+        return True
     if STRATEGY == "daily":
         # Idempotency guard: only rebalance once per calendar day.
         # Prevents duplicate trades when the Action fires multiple times.
