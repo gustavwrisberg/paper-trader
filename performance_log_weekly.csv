@@ -1,1 +1,1 @@
-date,ticker,action,shares,price,value,reason
+date,portfolio_value,benchmark_value
