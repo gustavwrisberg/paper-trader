@@ -9,12 +9,18 @@ on:
     - cron: "*/10 14-21 * * 1-5"
     - cron: "0,10,20,30,40,50 22 * * 1-5"
   workflow_dispatch:
+    inputs:
+      force_rebalance:
+        description: 'Force rebalance on all strategies (use for manual/reset runs)'
+        required: false
+        default: 'true'
 
 jobs:
   daily:
     runs-on: ubuntu-latest
     env:
       STRATEGY: daily
+      FORCE_REBALANCE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_rebalance == 'true' && '1' || '0' }}
       GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
       GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
       GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
@@ -46,6 +52,7 @@ jobs:
     needs: daily
     env:
       STRATEGY: weekly
+      FORCE_REBALANCE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_rebalance == 'true' && '1' || '0' }}
       GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
       GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
       GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
@@ -78,6 +85,7 @@ jobs:
     needs: weekly
     env:
       STRATEGY: monthly
+      FORCE_REBALANCE: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.force_rebalance == 'true' && '1' || '0' }}
       GMAIL_CLIENT_ID:     ${{ secrets.GMAIL_CLIENT_ID }}
       GMAIL_CLIENT_SECRET: ${{ secrets.GMAIL_CLIENT_SECRET }}
       GMAIL_REFRESH_TOKEN: ${{ secrets.GMAIL_REFRESH_TOKEN }}
