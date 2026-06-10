@@ -5,3 +5,5 @@ date,ticker,action,shares,price,value,reason
 2026-06-09,ASML,BUY,1.903125,1708.9,3252.25,"New entry — rank #2 (+17.8% 90d momentum, rank #2)"
 2026-06-09,AAPL,BUY,0.379743,289.72,110.02,"Add to position — rank #3 (+12.4% 90d momentum, rank #3)"
 2026-06-09,SHEL,SELL,39.032006,84.93,3314.99,"Dropped from top 3 (rank #4, +11.7%)"
+2026-06-10,SHEL,BUY,37.700531,87.1,3283.72,"New entry — rank #3 (+15.2% 90d momentum, rank #3)"
+2026-06-10,AAPL,SELL,11.225495,292.275,3280.93,"Dropped from top 3 (rank #4, +12.8%)"
