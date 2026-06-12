@@ -9,3 +9,5 @@ date,ticker,action,shares,price,value,reason
 2026-06-10,AAPL,SELL,11.225495,292.275,3280.93,"Dropped from top 3 (rank #4, +12.8%)"
 2026-06-11,ASML,SELL,0.083594,1861.9449,155.65,"Trim to equal weight (+29.6% 90d momentum, rank #1)"
 2026-06-11,SHEL,BUY,1.244233,86.38,107.48,"Add to position — rank #3 (+16.2% 90d momentum, rank #3)"
+2026-06-12,EEM,BUY,49.912672,67.915,3389.82,"New entry — rank #3 (+14.0% 90d momentum, rank #3)"
+2026-06-12,SHEL,SELL,38.944764,85.97,3348.08,"Dropped from top 3 (rank #5, +12.8%)"
