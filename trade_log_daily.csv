@@ -13,3 +13,6 @@ date,ticker,action,shares,price,value,reason
 2026-06-12,SHEL,SELL,38.944764,85.97,3348.08,"Dropped from top 3 (rank #5, +12.8%)"
 2026-06-15,NVDA,BUY,16.420335,212.0101,3481.28,"New entry — rank #3 (+21.9% 90d momentum, rank #3)"
 2026-06-15,EEM,SELL,49.912672,69.71,3479.41,"Dropped from top 3 (rank #4, +18.6%)"
+2026-06-17,ASML,SELL,0.055788,1917.79,106.99,"Trim to equal weight (+36.2% 90d momentum, rank #1)"
+2026-06-17,EEM,BUY,49.494243,69.865,3457.92,"New entry — rank #3 (+16.9% 90d momentum, rank #3)"
+2026-06-17,NVDA,SELL,16.166918,207.3,3351.4,"Dropped from top 3 (rank #6, +11.9%)"
