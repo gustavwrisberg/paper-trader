@@ -18,3 +18,5 @@ date,ticker,action,shares,price,value,reason
 2026-06-17,NVDA,SELL,16.166918,207.3,3351.4,"Dropped from top 3 (rank #6, +11.9%)"
 2026-06-18,ASML,BUY,0.028148,1917.53,53.98,"Add to position — rank #1 (+34.6% 90d momentum, rank #1)"
 2026-06-18,TSM,SELL,0.15204,454.641,69.12,"Trim to equal weight (+28.6% 90d momentum, rank #2)"
+2026-06-19,SHEL,BUY,0.0,78.81,0.0,"New entry — rank #1 (+3.2% 90d momentum, rank #1)"
+2026-06-19,BTC,BUY,0.0,62885.6,0.0,"New entry — rank #2 (-10.3% 90d momentum, rank #2)"
