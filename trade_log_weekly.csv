@@ -8,3 +8,7 @@ date,ticker,action,shares,price,value,reason
 2026-06-15,ASML,SELL,0.09547,1905.55,181.92,"Trim to equal weight (+42.8% 90d momentum, rank #1)"
 2026-06-15,NVDA,BUY,16.403078,212.08,3478.76,"New entry — rank #3 (+21.9% 90d momentum, rank #3)"
 2026-06-15,AAPL,SELL,11.14287,296.025,3298.57,"Dropped from top 3 (rank #7, +7.3%)"
+2026-06-22,ASML,BUY,0.025849,1891.999,48.91,"Add to position — rank #1 (+34.1% 90d momentum, rank #1)"
+2026-06-22,TSM,SELL,0.32732,466.89,152.82,"Trim to equal weight (+29.7% 90d momentum, rank #2)"
+2026-06-22,EEM,BUY,49.420073,71.225,3519.94,"New entry — rank #3 (+18.1% 90d momentum, rank #3)"
+2026-06-22,NVDA,SELL,16.343851,209.01,3416.03,"Dropped from top 3 (rank #5, +11.0%)"
