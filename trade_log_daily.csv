@@ -76,3 +76,6 @@ date,ticker,action,shares,price,value,reason
 2026-06-29,ASML,SELL,0.002306,1875.6949,4.32,"Trim to equal weight (+28.0% 90d momentum, rank #1)"
 2026-06-29,TSM,BUY,0.033928,450.95,15.3,"Add to position — rank #2 (+25.1% 90d momentum, rank #2)"
 2026-06-29,AMZN,SELL,0.045361,241.95,10.98,"Trim to equal weight (+18.1% 90d momentum, rank #3)"
+2026-06-29,ASML,SELL,0.003639,1883.11,6.85,"Trim to equal weight (+28.5% 90d momentum, rank #1)"
+2026-06-29,TSM,SELL,0.053401,455.1,24.3,"Trim to equal weight (+26.3% 90d momentum, rank #2)"
+2026-06-29,AMZN,BUY,0.129736,240.14,31.15,"Add to position — rank #3 (+17.3% 90d momentum, rank #3)"
