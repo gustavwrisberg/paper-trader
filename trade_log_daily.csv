@@ -130,3 +130,6 @@ date,ticker,action,shares,price,value,reason
 2026-07-07,NVO,BUY,0.171696,49.52,8.5,"Add to position — rank #1 (+34.5% 90d momentum, rank #1)"
 2026-07-07,GOOGL,BUY,0.005255,368.87,1.94,"Add to position — rank #2 (+18.0% 90d momentum, rank #2)"
 2026-07-07,AMZN,SELL,0.042466,245.86,10.44,"Trim to equal weight (+16.7% 90d momentum, rank #3)"
+2026-07-07,NVO,SELL,0.201834,49.64,10.02,"Trim to equal weight (+34.9% 90d momentum, rank #1)"
+2026-07-07,GOOGL,BUY,0.03764,367.03,13.81,"Add to position — rank #2 (+17.5% 90d momentum, rank #2)"
+2026-07-07,AMZN,SELL,0.015432,245.98,3.8,"Trim to equal weight (+16.8% 90d momentum, rank #3)"
