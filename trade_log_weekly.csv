@@ -40,3 +40,6 @@ date,ticker,action,shares,price,value,reason
 2026-07-13,ASML,BUY,0.049019,1730.92,84.85,"Add to position — rank #2 (+27.5% 90d momentum, rank #2)"
 2026-07-13,TSM,BUY,7.760386,425.295,3300.45,"New entry — rank #3 (+21.1% 90d momentum, rank #3)"
 2026-07-13,GOOGL,SELL,9.252063,355.94,3293.18,"Dropped from top 3 (rank #6, +17.4%)"
+2026-07-13,NVO,SELL,0.04736,49.18,2.33,"Trim to equal weight (+39.1% 90d momentum, rank #1)"
+2026-07-13,ASML,SELL,0.002674,1728.26,4.62,"Trim to equal weight (+27.3% 90d momentum, rank #2)"
+2026-07-13,TSM,BUY,0.016427,423.15,6.95,"Add to position — rank #3 (+20.4% 90d momentum, rank #3)"
