@@ -292,3 +292,6 @@ date,ticker,action,shares,price,value,reason
 2026-07-22,ASML,BUY,0.001164,1801.125,2.1,"Add to position — rank #1 (+33.6% 90d momentum, rank #1)"
 2026-07-22,NVO,BUY,0.075692,48.21,3.65,"Add to position — rank #2 (+31.5% 90d momentum, rank #2)"
 2026-07-22,AAPL,SELL,0.017741,323.86,5.75,"Trim to equal weight (+26.7% 90d momentum, rank #3)"
+2026-07-22,ASML,SELL,0.002426,1807.98,4.39,"Trim to equal weight (+34.1% 90d momentum, rank #1)"
+2026-07-22,NVO,BUY,0.330386,48.085,15.89,"Add to position — rank #2 (+31.1% 90d momentum, rank #2)"
+2026-07-22,AAPL,SELL,0.035299,325.82,11.5,"Trim to equal weight (+27.5% 90d momentum, rank #3)"
