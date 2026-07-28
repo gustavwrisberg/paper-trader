@@ -29,3 +29,6 @@ date,ticker,action,shares,price,value,reason
 2026-07-28,ASML,SELL,1.681807,1591.3101,2676.28,"Dropped from top 3 (rank #4, +17.7%)"
 2026-07-28,TSM,SELL,7.005998,392.83,2752.17,"Dropped from top 3 (rank #5, +16.0%)"
 2026-07-28,GOOGL,SELL,9.362438,333.18,3119.38,"Dropped from top 3 (rank #11, +8.3%)"
+2026-07-28,NVO,SELL,0.055527,51.04,2.83,"Trim to equal weight (+41.3% 90d momentum, rank #1)"
+2026-07-28,AAPL,BUY,0.010013,339.57,3.4,"Add to position — rank #2 (+36.0% 90d momentum, rank #2)"
+2026-07-28,SIEGY,SELL,0.003646,155.21,0.57,"Trim to equal weight (+26.2% 90d momentum, rank #3)"
