@@ -396,3 +396,6 @@ date,ticker,action,shares,price,value,reason
 2026-08-03,AMZN,SELL,0.34057,284.63,96.94,"Trim to equal weight (+37.3% 90d momentum, rank #1)"
 2026-08-03,SIEGY,BUY,0.129516,164.37,21.29,"Add to position — rank #2 (+35.8% 90d momentum, rank #2)"
 2026-08-03,NVO,BUY,1.621256,46.66,75.65,"Add to position — rank #3 (+31.1% 90d momentum, rank #3)"
+2026-08-03,AMZN,BUY,0.070037,282.87,19.81,"Add to position — rank #1 (+36.5% 90d momentum, rank #1)"
+2026-08-03,SIEGY,SELL,0.008923,164.49,1.47,"Trim to equal weight (+35.9% 90d momentum, rank #2)"
+2026-08-03,NVO,SELL,0.390703,46.9499,18.34,"Trim to equal weight (+31.9% 90d momentum, rank #3)"
