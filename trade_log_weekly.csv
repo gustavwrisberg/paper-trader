@@ -105,3 +105,6 @@ date,ticker,action,shares,price,value,reason
 2026-08-10,MSFT,BUY,0.005695,505.66,2.88,"Add to position — rank #1 (+36.9% 90d momentum, rank #1)"
 2026-08-10,ASML,SELL,0.002702,1753.825,4.74,"Trim to equal weight (+33.2% 90d momentum, rank #2)"
 2026-08-10,AMZN,BUY,0.006712,276.97,1.86,"Add to position — rank #3 (+33.0% 90d momentum, rank #3)"
+2026-08-10,MSFT,SELL,0.018941,506.06,9.59,"Trim to equal weight (+37.0% 90d momentum, rank #1)"
+2026-08-10,AMZN,SELL,0.071274,278.09,19.82,"Trim to equal weight (+33.5% 90d momentum, rank #2)"
+2026-08-10,ASML,BUY,0.016963,1733.48,29.41,"Add to position — rank #3 (+31.7% 90d momentum, rank #3)"
