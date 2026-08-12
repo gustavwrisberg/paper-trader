@@ -498,3 +498,7 @@ date,ticker,action,shares,price,value,reason
 2026-08-11,MSFT,BUY,0.001422,503.81,0.72,"Add to position — rank #1 (+36.7% 90d momentum, rank #1)"
 2026-08-11,ASML,SELL,0.010636,1799.38,19.14,"Trim to equal weight (+32.8% 90d momentum, rank #2)"
 2026-08-11,NVO,BUY,0.390549,47.17,18.42,"Add to position — rank #3 (+29.3% 90d momentum, rank #3)"
+2026-08-12,ASML,SELL,0.03182,1815.59,57.77,"Trim to equal weight (+38.3% 90d momentum, rank #1)"
+2026-08-12,SBGSY,BUY,41.207347,71.5,2946.33,"New entry — rank #2 (+33.3% 90d momentum, rank #2)"
+2026-08-12,MSFT,BUY,0.040246,495.2001,19.93,"Add to position — rank #3 (+32.9% 90d momentum, rank #3)"
+2026-08-12,NVO,SELL,63.117996,46.0801,2908.48,"Dropped from top 3 (rank #8, +24.6%)"
