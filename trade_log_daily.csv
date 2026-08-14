@@ -544,3 +544,6 @@ date,ticker,action,shares,price,value,reason
 2026-08-14,ASML,BUY,0.00923,1837.0649,16.96,"Add to position — rank #1 (+41.1% 90d momentum, rank #1)"
 2026-08-14,MSFT,SELL,0.025866,498.97,12.91,"Trim to equal weight (+34.3% 90d momentum, rank #2)"
 2026-08-14,SIEGY,SELL,0.024657,164.21,4.05,"Trim to equal weight (+33.2% 90d momentum, rank #3)"
+2026-08-14,ASML,BUY,0.00547,1827.59,10.0,"Add to position — rank #1 (+40.4% 90d momentum, rank #1)"
+2026-08-14,MSFT,SELL,0.009424,498.87,4.7,"Trim to equal weight (+34.3% 90d momentum, rank #2)"
+2026-08-14,SIEGY,SELL,0.032248,164.21,5.3,"Trim to equal weight (+33.2% 90d momentum, rank #3)"
