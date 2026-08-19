@@ -662,3 +662,6 @@ date,ticker,action,shares,price,value,reason
 2026-08-19,MSFT,BUY,0.002998,483.7,1.45,"Add to position — rank #1 (+30.7% 90d momentum, rank #1)"
 2026-08-19,NVO,BUY,0.03076,46.285,1.42,"Add to position — rank #2 (+24.9% 90d momentum, rank #2)"
 2026-08-19,AAPL,SELL,0.009124,314.95,2.87,"Trim to equal weight (+21.1% 90d momentum, rank #3)"
+2026-08-19,MSFT,BUY,0.00012,484.18,0.06,"Add to position — rank #1 (+30.8% 90d momentum, rank #1)"
+2026-08-19,NVO,BUY,0.022562,46.315,1.04,"Add to position — rank #2 (+25.0% 90d momentum, rank #2)"
+2026-08-19,AAPL,SELL,0.003497,315.39,1.1,"Trim to equal weight (+21.3% 90d momentum, rank #3)"
