@@ -785,3 +785,6 @@ date,ticker,action,shares,price,value,reason
 2026-08-24,AAPL,BUY,0.012262,311.67,3.82,"Add to position — rank #3 (+17.2% 90d momentum, rank #3)"
 2026-08-24,MSFT,SELL,0.009735,488.35,4.75,"Trim to equal weight (+19.2% 90d momentum, rank #1)"
 2026-08-24,AAPL,BUY,0.015699,310.9801,4.88,"Add to position — rank #3 (+16.9% 90d momentum, rank #3)"
+2026-08-24,MSFT,SELL,0.008926,487.28,4.35,"Trim to equal weight (+19.0% 90d momentum, rank #1)"
+2026-08-24,ASML,BUY,0.005272,1740.13,9.17,"Add to position — rank #2 (+17.8% 90d momentum, rank #2)"
+2026-08-24,AAPL,SELL,0.015546,310.35,4.82,"Trim to equal weight (+16.7% 90d momentum, rank #3)"
