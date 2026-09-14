@@ -190,3 +190,7 @@ date,ticker,action,shares,price,value,reason
 2026-09-07,AAPL,BUY,9.44507,319.97,3022.14,"New entry — rank #2 (+18.4% 90d momentum, rank #2)"
 2026-09-07,MSFT,BUY,0.138122,499.7,69.02,"Add to position — rank #3 (+16.9% 90d momentum, rank #3)"
 2026-09-07,NVO,SELL,66.136649,46.6,3081.97,"Dropped from top 3 (rank #4, +14.6%)"
+2026-09-14,MSFT,SELL,0.103415,506.115,52.34,"Trim to equal weight (+23.5% 90d momentum, rank #1)"
+2026-09-14,AAPL,SELL,0.452104,334.55,151.25,"Trim to equal weight (+17.9% 90d momentum, rank #2)"
+2026-09-14,BRK-B,BUY,5.844544,514.77,3008.6,"New entry — rank #3 (+10.6% 90d momentum, rank #3)"
+2026-09-14,ASML,SELL,1.762303,1591.67,2805.0,"Dropped from top 3 (rank #4, +10.5%)"
