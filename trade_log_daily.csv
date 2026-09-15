@@ -959,3 +959,7 @@ date,ticker,action,shares,price,value,reason
 2026-09-15,SBGSY,SELL,0.0,63.48,0.0,"Dropped from top 3 (rank #13, -3.5%)"
 2026-09-15,BTC,SELL,0.0,76818.5,0.0,"Dropped from top 3 (rank #15, -5.7%)"
 2026-09-15,BRK-B,SELL,5.318885,514.13,2734.6,"Dropped from top 3 (rank #4, +9.4%)"
+2026-09-15,MSFT,BUY,0.009228,497.12,4.59,"Add to position — rank #1 (+20.6% 90d momentum, rank #1)"
+2026-09-15,SHEL,BUY,0.044687,98.95,4.42,"Add to position — rank #2 (+15.5% 90d momentum, rank #2)"
+2026-09-15,AAPL,SELL,0.02719,331.34,9.01,"Trim to equal weight (+15.5% 90d momentum, rank #3)"
+2026-09-15,SIEGY,SELL,0.0,149.16,0.0,"Dropped from top 3 (rank #15, -6.0%)"
