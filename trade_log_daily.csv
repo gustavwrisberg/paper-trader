@@ -978,3 +978,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-17,MSFT,SELL,0.016318,495.82,8.09,"Trim to equal weight (+19.9% 90d momentum, rank #1)"
 2026-09-17,SHEL,BUY,0.152477,95.965,14.63,"Add to position — rank #2 (+16.3% 90d momentum, rank #2)"
 2026-09-17,AAPL,SELL,0.019471,335.96,6.54,"Trim to equal weight (+14.7% 90d momentum, rank #3)"
+2026-09-17,MSFT,SELL,0.011206,497.75,5.58,"Trim to equal weight (+20.4% 90d momentum, rank #1)"
+2026-09-17,SHEL,BUY,0.093977,95.82,9.0,"Add to position — rank #2 (+16.2% 90d momentum, rank #2)"
+2026-09-17,AAPL,SELL,0.010169,337.0,3.43,"Trim to equal weight (+15.1% 90d momentum, rank #3)"
