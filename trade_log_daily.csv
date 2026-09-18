@@ -981,3 +981,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-17,MSFT,SELL,0.011206,497.75,5.58,"Trim to equal weight (+20.4% 90d momentum, rank #1)"
 2026-09-17,SHEL,BUY,0.093977,95.82,9.0,"Add to position — rank #2 (+16.2% 90d momentum, rank #2)"
 2026-09-17,AAPL,SELL,0.010169,337.0,3.43,"Trim to equal weight (+15.1% 90d momentum, rank #3)"
+2026-09-18,SHEL,SELL,18.810691,95.82,1802.44,"Trim to equal weight (+16.2% 90d momentum, rank #1)"
+2026-09-18,SBGSY,BUY,13.723469,65.67,901.22,"New entry — rank #2 (+3.6% 90d momentum, rank #2)"
+2026-09-18,SIEGY,BUY,5.899968,152.75,901.22,"New entry — rank #3 (-2.7% 90d momentum, rank #3)"
