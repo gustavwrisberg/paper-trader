@@ -1029,3 +1029,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-23,SBGSY,SELL,0.0,66.37,0.0,"Dropped from top 3 (rank #7, +5.7%)"
 2026-09-23,SIEGY,SELL,0.0,155.32,0.0,"Dropped from top 3 (rank #14, -1.8%)"
 2026-09-23,TSM,SELL,6.071929,446.57,2711.54,"Dropped from top 3 (rank #5, +7.4%)"
+2026-09-24,SHEL,SELL,19.082057,95.41,1820.62,"Trim to equal weight (+14.9% 90d momentum, rank #1)"
+2026-09-24,SBGSY,BUY,13.715677,66.37,910.31,"New entry — rank #2 (+5.7% 90d momentum, rank #2)"
+2026-09-24,BTC,BUY,0.010788,84384.6,910.31,"New entry — rank #3 (+4.1% 90d momentum, rank #3)"
