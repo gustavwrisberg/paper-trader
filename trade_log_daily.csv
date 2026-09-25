@@ -1041,3 +1041,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-24,MSFT,SELL,0.019755,497.93,9.84,"Trim to equal weight (+18.5% 90d momentum, rank #1)"
 2026-09-24,ASML,SELL,0.001825,1722.5,3.14,"Trim to equal weight (+14.8% 90d momentum, rank #2)"
 2026-09-24,SHEL,BUY,0.135766,95.6,12.98,"Add to position — rank #3 (+14.0% 90d momentum, rank #3)"
+2026-09-25,SHEL,SELL,18.994316,95.6,1815.86,"Trim to equal weight (+14.0% 90d momentum, rank #1)"
+2026-09-25,SBGSY,BUY,13.696308,66.29,907.93,"New entry — rank #2 (+8.6% 90d momentum, rank #2)"
+2026-09-25,BTC,BUY,0.01076,84380.0,907.93,"New entry — rank #3 (+6.7% 90d momentum, rank #3)"
