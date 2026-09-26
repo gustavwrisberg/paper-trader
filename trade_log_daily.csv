@@ -1054,3 +1054,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-25,ASML,SELL,0.003087,1743.9399,5.38,"Trim to equal weight (+18.6% 90d momentum, rank #2)"
 2026-09-25,AAPL,BUY,8.11405,341.07,2767.46,"New entry — rank #3 (+14.6% 90d momentum, rank #3)"
 2026-09-25,TSM,SELL,6.144264,450.61,2768.67,"Dropped from top 3 (rank #4, +14.4%)"
+2026-09-26,SBGSY,BUY,0.0,66.75,0.0,"New entry — rank #1 (+9.5% 90d momentum, rank #1)"
+2026-09-26,BTC,BUY,0.0,84090.5,0.0,"New entry — rank #2 (+9.3% 90d momentum, rank #2)"
+2026-09-26,SIEGY,BUY,0.0,159.65,0.0,"New entry — rank #3 (+5.0% 90d momentum, rank #3)"
