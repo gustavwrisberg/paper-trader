@@ -107,3 +107,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-29,SBGSY,BUY,0.0,66.42,0.0,"New entry — rank #1 (+12.3% 90d momentum, rank #1)"
 2026-09-29,SHEL,BUY,0.0,96.47,0.0,"New entry — rank #2 (+11.0% 90d momentum, rank #2)"
 2026-09-29,BTC,BUY,0.0,83462.7,0.0,"New entry — rank #3 (+8.7% 90d momentum, rank #3)"
+2026-09-29,SBGSY,SELL,0.0,66.42,0.0,"Dropped from top 3 (rank #5, +12.3%)"
+2026-09-29,SHEL,SELL,0.0,96.47,0.0,"Dropped from top 3 (rank #6, +11.0%)"
+2026-09-29,BTC,SELL,0.0,83462.7,0.0,"Dropped from top 3 (rank #7, +8.7%)"
