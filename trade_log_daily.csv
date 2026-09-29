@@ -1070,3 +1070,6 @@ date,ticker,action,shares,price,value,reason
 2026-09-29,SBGSY,SELL,0.0,66.42,0.0,"Dropped from top 3 (rank #5, +12.3%)"
 2026-09-29,SHEL,SELL,0.0,96.47,0.0,"Dropped from top 3 (rank #6, +11.0%)"
 2026-09-29,BTC,SELL,0.0,83462.7,0.0,"Dropped from top 3 (rank #7, +8.7%)"
+2026-09-29,MSFT,BUY,0.072973,510.84,37.28,"Add to position — rank #1 (+21.8% 90d momentum, rank #1)"
+2026-09-29,ASML,SELL,0.027233,1832.96,49.92,"Trim to equal weight (+18.4% 90d momentum, rank #2)"
+2026-09-29,TSM,BUY,0.027575,458.3601,12.64,"Add to position — rank #3 (+14.7% 90d momentum, rank #3)"
