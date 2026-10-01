@@ -1098,3 +1098,6 @@ date,ticker,action,shares,price,value,reason
 2026-10-01,SBGSY,SELL,0.0,65.92,0.0,"Dropped from top 3 (rank #9, +5.9%)"
 2026-10-01,SIEGY,SELL,0.0,153.16,0.0,"Dropped from top 3 (rank #14, -1.4%)"
 2026-10-01,ASML,SELL,1.543919,1805.88,2788.13,"Dropped from top 3 (rank #5, +10.7%)"
+2026-10-01,MSFT,BUY,0.025626,512.8,13.14,"Add to position — rank #1 (+22.7% 90d momentum, rank #1)"
+2026-10-01,TSM,SELL,0.016506,459.2,7.58,"Trim to equal weight (+14.1% 90d momentum, rank #2)"
+2026-10-01,SHEL,SELL,0.058165,95.61,5.56,"Trim to equal weight (+12.5% 90d momentum, rank #3)"
