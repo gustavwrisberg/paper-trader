@@ -1152,3 +1152,6 @@ date,ticker,action,shares,price,value,reason
 2026-10-08,TSM,SELL,4.038708,455.49,1839.59,"Dropped from top 3 (rank #8, +5.1%)"
 2026-10-08,SHEL,BUY,0.002405,100.2,0.24,"Add to position — rank #1 (+18.3% 90d momentum, rank #1)"
 2026-10-08,MSFT,SELL,0.001212,522.61,0.63,"Trim to equal weight (+13.7% 90d momentum, rank #3)"
+2026-10-09,BTC,SELL,0.011633,81683.8,950.23,"Trim to equal weight (+14.5% 90d momentum, rank #1)"
+2026-10-09,MSFT,SELL,1.817764,522.61,949.98,"Trim to equal weight (+13.7% 90d momentum, rank #2)"
+2026-10-09,AAPL,BUY,5.581957,340.42,1900.21,"New entry — rank #3 (+11.2% 90d momentum, rank #3)"
