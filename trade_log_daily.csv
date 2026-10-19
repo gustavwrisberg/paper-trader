@@ -1204,3 +1204,8 @@ date,ticker,action,shares,price,value,reason
 2026-10-17,BTC,SELL,0.023441,81500.8,1910.43,"Trim to equal weight (+32.1% 90d momentum, rank #1)"
 2026-10-17,MHVYF,BUY,40.219644,23.75,955.22,"New entry — rank #2 (+6.8% 90d momentum, rank #2)"
 2026-10-17,SIEGY,BUY,6.36514,150.07,955.22,"New entry — rank #3 (-2.0% 90d momentum, rank #3)"
+2026-10-19,MSFT,SELL,0.068686,534.34,36.7,"Trim to equal weight (+34.7% 90d momentum, rank #1)"
+2026-10-19,BTC,BUY,0.023232,81942.4,1903.69,"Add to position — rank #2 (+33.3% 90d momentum, rank #2)"
+2026-10-19,SHEL,BUY,0.336685,105.05,35.37,"Add to position — rank #3 (+23.2% 90d momentum, rank #3)"
+2026-10-19,MHVYF,SELL,40.219644,23.88,960.45,"Dropped from top 3 (rank #8, +8.6%)"
+2026-10-19,SIEGY,SELL,6.36514,147.98,941.91,"Dropped from top 3 (rank #14, -0.4%)"
