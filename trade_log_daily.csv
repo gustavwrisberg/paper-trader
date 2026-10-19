@@ -1209,3 +1209,5 @@ date,ticker,action,shares,price,value,reason
 2026-10-19,SHEL,BUY,0.336685,105.05,35.37,"Add to position — rank #3 (+23.2% 90d momentum, rank #3)"
 2026-10-19,MHVYF,SELL,40.219644,23.88,960.45,"Dropped from top 3 (rank #8, +8.6%)"
 2026-10-19,SIEGY,SELL,6.36514,147.98,941.91,"Dropped from top 3 (rank #14, -0.4%)"
+2026-10-19,MSFT,BUY,0.001739,533.52,0.93,"Add to position — rank #1 (+34.5% 90d momentum, rank #1)"
+2026-10-19,SHEL,BUY,0.026744,104.82,2.8,"Add to position — rank #3 (+22.9% 90d momentum, rank #3)"
