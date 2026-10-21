@@ -1229,3 +1229,5 @@ date,ticker,action,shares,price,value,reason
 2026-10-21,SHEL,BUY,0.275967,105.05,28.99,"Add to position — rank #3 (+23.7% 90d momentum, rank #3)"
 2026-10-21,SIEGY,SELL,5.809873,149.91,870.96,"Dropped from top 3 (rank #13, -2.1%)"
 2026-10-21,SBGSY,SELL,15.529381,55.9,868.09,"Dropped from top 3 (rank #16, -8.8%)"
+2026-10-21,MSFT,BUY,0.004393,532.95,2.34,"Add to position — rank #1 (+36.7% 90d momentum, rank #1)"
+2026-10-21,SHEL,SELL,0.036847,105.36,3.88,"Trim to equal weight (+24.1% 90d momentum, rank #3)"
