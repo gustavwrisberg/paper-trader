@@ -1223,3 +1223,4 @@ date,ticker,action,shares,price,value,reason
 2026-10-21,BTC,SELL,0.020529,82936.1,1702.62,"Trim to equal weight (+30.5% 90d momentum, rank #1)"
 2026-10-21,SIEGY,BUY,5.80981,146.53,851.31,"New entry — rank #2 (-4.4% 90d momentum, rank #2)"
 2026-10-21,SBGSY,BUY,15.529212,54.82,851.31,"New entry — rank #3 (-13.1% 90d momentum, rank #3)"
+2026-10-21,SBGSY,BUY,0.000169,54.82,0.01,"Add to position — rank #3 (-13.1% 90d momentum, rank #3)"
