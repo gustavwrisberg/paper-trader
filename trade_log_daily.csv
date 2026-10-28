@@ -1272,3 +1272,6 @@ date,ticker,action,shares,price,value,reason
 2026-10-27,SIEGY,SELL,6.467256,148.16,958.19,"Dropped from top 3 (rank #13, -6.7%)"
 2026-10-27,MSFT,BUY,0.004529,531.33,2.41,"Add to position — rank #1 (+40.3% 90d momentum, rank #1)"
 2026-10-27,SHEL,BUY,0.035086,104.78,3.68,"Add to position — rank #2 (+34.1% 90d momentum, rank #2)"
+2026-10-28,BTC,SELL,0.020575,80800.9,1662.51,"Trim to equal weight (+28.5% 90d momentum, rank #1)"
+2026-10-28,SIEGY,BUY,5.607101,148.25,831.25,"New entry — rank #2 (-6.6% 90d momentum, rank #2)"
+2026-10-28,SBGSY,BUY,15.350927,54.15,831.25,"New entry — rank #3 (-19.1% 90d momentum, rank #3)"
