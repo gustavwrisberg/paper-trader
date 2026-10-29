@@ -1285,3 +1285,6 @@ date,ticker,action,shares,price,value,reason
 2026-10-28,SHEL,BUY,0.133054,105.19,14.0,"Add to position — rank #2 (+33.2% 90d momentum, rank #2)"
 2026-10-29,MSFT,BUY,0.000666,531.01,0.35,"Add to position — rank #1 (+44.8% 90d momentum, rank #1)"
 2026-10-29,SHEL,BUY,0.003365,105.19,0.35,"Add to position — rank #2 (+33.2% 90d momentum, rank #2)"
+2026-10-29,MSFT,BUY,0.046839,528.53,24.76,"Add to position — rank #1 (+41.6% 90d momentum, rank #1)"
+2026-10-29,SHEL,SELL,0.516921,107.6999,55.67,"Trim to equal weight (+36.6% 90d momentum, rank #2)"
+2026-10-29,BTC,BUY,0.000383,80730.5,30.92,"Add to position — rank #3 (+28.9% 90d momentum, rank #3)"
