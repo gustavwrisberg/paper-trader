@@ -1283,3 +1283,5 @@ date,ticker,action,shares,price,value,reason
 2026-10-28,MHVYF,SELL,41.622227,22.35,930.26,"Dropped from top 3 (rank #15, -7.3%)"
 2026-10-28,MSFT,SELL,0.018006,531.01,9.56,"Trim to equal weight (+44.8% 90d momentum, rank #1)"
 2026-10-28,SHEL,BUY,0.133054,105.19,14.0,"Add to position — rank #2 (+33.2% 90d momentum, rank #2)"
+2026-10-29,MSFT,BUY,0.000666,531.01,0.35,"Add to position — rank #1 (+44.8% 90d momentum, rank #1)"
+2026-10-29,SHEL,BUY,0.003365,105.19,0.35,"Add to position — rank #2 (+33.2% 90d momentum, rank #2)"
