@@ -140,3 +140,5 @@ date,ticker,action,shares,price,value,reason
 2026-10-28,TSM,SELL,5.622379,437.97,2462.43,"Dropped from top 3 (rank #13, -6.1%)"
 2026-10-28,MSFT,SELL,0.013838,531.01,7.35,"Trim to equal weight (+44.8% 90d momentum, rank #1)"
 2026-10-28,SHEL,BUY,0.118961,105.19,12.51,"Add to position — rank #2 (+33.2% 90d momentum, rank #2)"
+2026-10-29,MSFT,BUY,0.000614,531.01,0.33,"Add to position — rank #1 (+44.8% 90d momentum, rank #1)"
+2026-10-29,SHEL,BUY,0.0031,105.19,0.33,"Add to position — rank #2 (+33.2% 90d momentum, rank #2)"
