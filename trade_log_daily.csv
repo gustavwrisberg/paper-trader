@@ -1309,3 +1309,5 @@ date,ticker,action,shares,price,value,reason
 2026-11-02,AAPL,SELL,5.397591,338.32,1826.11,"Dropped from top 3 (rank #4, +23.1%)"
 2026-11-03,MSFT,BUY,0.000273,507.12,0.14,"Add to position — rank #1 (+44.0% 90d momentum, rank #1)"
 2026-11-03,SHEL,BUY,0.00132,104.94,0.14,"Add to position — rank #2 (+36.9% 90d momentum, rank #2)"
+2026-11-03,MSFT,SELL,0.098826,523.21,51.71,"Trim to equal weight (+40.5% 90d momentum, rank #1)"
+2026-11-03,SHEL,BUY,0.51203,104.22,53.36,"Add to position — rank #2 (+37.4% 90d momentum, rank #2)"
