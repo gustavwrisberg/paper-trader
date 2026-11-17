@@ -1398,3 +1398,6 @@ date,ticker,action,shares,price,value,reason
 2026-11-16,SHEL,BUY,0.11378,97.71,11.12,"Add to position — rank #2 (+20.8% 90d momentum, rank #2)"
 2026-11-16,BRK-B,BUY,1.439379,592.85,853.34,"Add to position — rank #3 (+20.1% 90d momentum, rank #3)"
 2026-11-16,AAPL,SELL,4.924451,352.78,1737.25,"Dropped from top 3 (rank #4, +12.1%)"
+2026-11-17,MSFT,BUY,0.051997,506.24,26.32,"Add to position — rank #1 (+29.7% 90d momentum, rank #1)"
+2026-11-17,BRK-B,SELL,0.010294,586.76,6.04,"Trim to equal weight (+18.1% 90d momentum, rank #2)"
+2026-11-17,SHEL,SELL,0.208585,97.24,20.28,"Trim to equal weight (+17.7% 90d momentum, rank #3)"
