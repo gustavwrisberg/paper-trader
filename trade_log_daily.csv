@@ -1430,3 +1430,6 @@ date,ticker,action,shares,price,value,reason
 2026-11-24,MSFT,SELL,0.001305,496.13,0.65,"Trim to equal weight (+23.8% 90d momentum, rank #1)"
 2026-11-24,BRK-B,SELL,0.005891,577.21,3.4,"Trim to equal weight (+17.5% 90d momentum, rank #2)"
 2026-11-24,SHEL,BUY,0.043328,93.42,4.05,"Add to position — rank #3 (+10.2% 90d momentum, rank #3)"
+2026-11-25,MSFT,BUY,0.061983,489.93,30.37,"Add to position — rank #1 (+23.6% 90d momentum, rank #1)"
+2026-11-25,BRK-B,SELL,0.017653,579.32,10.23,"Trim to equal weight (+18.3% 90d momentum, rank #2)"
+2026-11-25,SHEL,SELL,0.213966,94.13,20.14,"Trim to equal weight (+9.8% 90d momentum, rank #3)"
