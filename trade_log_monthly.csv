@@ -160,3 +160,8 @@ date,ticker,action,shares,price,value,reason
 2026-10-31,MSFT,SELL,1.559653,521.91,814.0,"Trim to equal weight (+43.1% 90d momentum, rank #1)"
 2026-10-31,BTC,SELL,0.010713,77204.3,827.07,"Trim to equal weight (+26.6% 90d momentum, rank #2)"
 2026-10-31,AAPL,BUY,4.761835,344.63,1641.07,"New entry — rank #3 (+17.7% 90d momentum, rank #3)"
+2026-11-28,MSFT,BUY,1.377591,492.85,678.95,"Add to position — rank #1 (+26.7% 90d momentum, rank #1)"
+2026-11-28,BRK-B,BUY,3.83726,580.79,2228.64,"New entry — rank #2 (+18.7% 90d momentum, rank #2)"
+2026-11-28,SHEL,BUY,0.756085,95.47,72.18,"Add to position — rank #3 (+10.6% 90d momentum, rank #3)"
+2026-11-28,BTC,SELL,0.021256,59863.7,1272.46,"Dropped from top 3 (rank #11, -9.4%)"
+2026-11-28,AAPL,SELL,4.761835,358.54,1707.31,"Dropped from top 3 (rank #4, +10.2%)"
